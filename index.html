@@ -9,20 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="bg-black text-white font-poppins transition-colors duration-300" id="body">
-    <!-- Navigation Bar -->
     <nav class="w-full bg-gray-900 p-4 flex justify-between items-center shadow-lg fixed top-0 z-50">
-        <!-- Logo with Book Emoji -->
         <div class="flex items-center space-x-2">
             <span class="text-3xl">📚</span>
             <h1 class="text-2xl font-bold text-neonBlue">Movie Recommender</h1>
         </div>
-        
-        <!-- Mobile Menu Button -->
         <button id="menu-btn" class="block md:hidden text-neonBlue focus:outline-none">
             ☰
         </button>
-        
-        <!-- Navigation Links -->
         <div id="menu" class="hidden md:flex md:items-center gap-4">
             <a href="./index.html" class="text-white hover:text-neonBlue transition duration-300">Home</a>
             <a href="#movie-grid" class="text-white hover:text-neonBlue transition duration-300">Movies</a>
@@ -33,12 +27,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Animation -->
-    <section class="min-h-screen flex flex-col items-center justify-center bg-gray-800 bg-opacity-50">
-        <div class="animate-fade-in">
-            <h1 class="text-5xl font-bold text-neonBlue mb-6 text-center">Discover Your Next Favorite Movie</h1>
-            
-            <!-- Search Bar -->
+    <section class="min-h-screen flex flex-col items-center justify-center bg-gray-800 bg-opacity-50 px-4">
+        <div class="animate-fade-in text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-neonBlue mb-6">Discover Your Next Favorite Movie</h1>
             <div class="w-full max-w-lg relative">
                 <input type="text" id="search" placeholder="Search for a movie..." class="w-full p-3 rounded-lg bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-neonBlue">
                 <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
@@ -46,58 +37,101 @@
         </div>
     </section>
 
-    <!-- Movie Carousel with Animation -->
-    <section class="py-12 bg-gray-900">
+    <section class="py-12 bg-gray-900 px-4">
         <h2 class="text-3xl font-bold text-neonBlue text-center mb-8 animate-slide-in">Featured Movies</h2>
-        <div class="overflow-hidden relative w-full">
-            <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
-                <div class="min-w-full flex justify-center">
-                    <div class="book-container animate-pop-in" data-title="A Perfect World">
-                        <div class="book">
-                            <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
-                                <img src="./movie fotos/Perfect world.jpg" alt="A Perfect World" class="rounded-lg w-full h-64 object-cover">
-                                <h2 class="mt-3 text-lg font-semibold text-neonBlue">A Perfect World</h2>
-                            </div>
-                            <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
-                                <p class="text-sm text-gray-400">1993 thriller crime drama directed by Clint Eastwood, starring Kevin Costner.</p>
-                            </div>
-                        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="movie-grid">
+            <div class="book-container animate-pop-in" data-title="A Perfect World">
+                <div class="book">
+                    <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
+                        <img src="./movie fotos/Perfect world.jpg" alt="A Perfect World" class="rounded-lg w-full h-64 object-cover">
+                        <h2 class="mt-3 text-lg font-semibold text-neonBlue">A Perfect World</h2>
                     </div>
-                </div>
-                <div class="min-w-full flex justify-center">
-                    <div class="book-container animate-pop-in" data-title="The Green Mile">
-                        <div class="book">
-                            <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
-                                <img src="./movie fotos/Green mile.jpg" alt="The Green Mile" class="rounded-lg w-full h-64 object-cover">
-                                <h2 class="mt-3 text-lg font-semibold text-neonBlue">The Green Mile</h2>
-                            </div>
-                            <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
-                                <p class="text-sm text-gray-400">The tragic story of John Coffey, a giant inmate condemned to death.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="min-w-full flex justify-center">
-                    <div class="book-container animate-pop-in" data-title="Escape Alcatraz">
-                        <div class="book">
-                            <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
-                                <img src="./movie fotos/Alcatraz 1.jpg" alt="Escape Alcatraz" class="rounded-lg w-full h-64 object-cover">
-                                <h2 class="mt-3 text-lg font-semibold text-neonBlue">Escape Alcatraz</h2>
-                            </div>
-                            <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
-                                <p class="text-sm text-gray-400">The daring escape attempt from one of the most infamous prisons.</p>
-                            </div>
-                        </div>
+                    <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <p class="text-sm text-gray-400">1993 thriller crime drama directed by Clint Eastwood, starring Kevin Costner.</p>
                     </div>
                 </div>
             </div>
-            <button id="prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-neonBlue p-2 rounded-full hover:bg-neonBlue hover:text-black transition"><i class="fas fa-chevron-left"></i></button>
-            <button id="next" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-neonBlue p-2 rounded-full hover:bg-neonBlue hover:text-black transition"><i class="fas fa-chevron-right"></i></button>
+            <div class="book-container animate-pop-in" data-title="The Green Mile">
+                <div class="book">
+                    <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
+                        <img src="./movie fotos/Green mile.jpg" alt="The Green Mile" class="rounded-lg w-full h-64 object-cover">
+                        <h2 class="mt-3 text-lg font-semibold text-neonBlue">The Green Mile</h2>
+                    </div>
+                    <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <p class="text-sm text-gray-400">The tragic story of John Coffey, a giant inmate condemned to death.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="book-container animate-pop-in" data-title="Escape Alcatraz">
+                <div class="book">
+                    <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
+                        <img src="./movie fotos/Alcatraz 1.jpg" alt="Escape Alcatraz" class="rounded-lg w-full h-64 object-cover">
+                        <h2 class="mt-3 text-lg font-semibold text-neonBlue">Escape Alcatraz</h2>
+                    </div>
+                    <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <p class="text-sm text-gray-400">The daring escape attempt from one of the most infamous prisons.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="book-container animate-pop-in" data-title="Inception">
+                <div class="book">
+                    <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
+                        <img src="./movie fotos/inception.jpg" alt="Inception" class="rounded-lg w-full h-64 object-cover">
+                        <h2 class="mt-3 text-lg font-semibold text-neonBlue">Inception</h2>
+                    </div>
+                    <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <p class="text-sm text-gray-400">A thief who steals corporate secrets through dream-sharing technology.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="book-container animate-pop-in" data-title="The Dark Knight">
+                <div class="book">
+                    <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
+                        <img src="./movie fotos/dark-knight.jpg" alt="The Dark Knight" class="rounded-lg w-full h-64 object-cover">
+                        <h2 class="mt-3 text-lg font-semibold text-neonBlue">The Dark Knight</h2>
+                    </div>
+                    <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <p class="text-sm text-gray-400">Batman faces the Joker in a battle for Gotham's soul.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="book-container animate-pop-in" data-title="Interstellar">
+                <div class="book">
+                    <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
+                        <img src="./movie fotos/interstellar.jpg" alt="Interstellar" class="rounded-lg w-full h-64 object-cover">
+                        <h2 class="mt-3 text-lg font-semibold text-neonBlue">Interstellar</h2>
+                    </div>
+                    <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <p class="text-sm text-gray-400">A team of explorers travel through a wormhole in search of a new home for humanity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="book-container animate-pop-in" data-title="The Matrix">
+                <div class="book">
+                    <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
+                        <img src="./movie fotos/matrix.jpg" alt="The Matrix" class="rounded-lg w-full h-64 object-cover">
+                        <h2 class="mt-3 text-lg font-semibold text-neonBlue">The Matrix</h2>
+                    </div>
+                    <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <p class="text-sm text-gray-400">A computer hacker learns about the true nature of reality.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="book-container animate-pop-in" data-title="Pulp Fiction">
+                <div class="book">
+                    <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
+                        <img src="./movie fotos/pulp-fiction.jpg" alt="Pulp Fiction" class="rounded-lg w-full h-64 object-cover">
+                        <h2 class="mt-3 text-lg font-semibold text-neonBlue">Pulp Fiction</h2>
+                    </div>
+                    <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <p class="text-sm text-gray-400">The lives of two mob hitmen, a boxer, and a gangster's wife intertwine.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Genres Section with Animation -->
-    <section class="py-12 bg-gray-800">
+    <section class="py-12 bg-gray-800 px-4">
         <div class="text-center">
             <h2 class="text-3xl font-bold text-neonBlue mb-8 animate-slide-in">Explore Genres</h2>
             <div class="flex flex-wrap gap-4 justify-center">
@@ -110,14 +144,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="w-full py-6 bg-gray-900 text-center text-gray-400 text-sm">
         <p>© 2025 Movie Recommender. All rights reserved.</p>
         <p class="mt-1">Page Created by Angelo, Simon, and Yorbe</p>
     </footer>
 
     <style>
-        /* Custom Animations */
         @keyframes fade-in {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -151,8 +183,8 @@
             perspective: 1000px;
         }
         .book {
-            width: 200px;
-            height: 300px;
+            width: 100%;
+            height: 400px;
             position: relative;
             transform-style: preserve-3d;
             transition: transform 0.6s ease-in-out;
@@ -191,13 +223,11 @@
     </style>
 
     <script>
-        // Dark Mode Toggle
         function toggleDarkMode() {
             document.body.classList.toggle("bg-white");
             document.body.classList.toggle("text-black");
         }
 
-        // Live Search Filter
         document.getElementById("search").addEventListener("input", function () {
             let searchQuery = this.value.toLowerCase();
             let movies = document.querySelectorAll(".book-container");
@@ -205,24 +235,6 @@
                 let title = movie.getAttribute("data-title").toLowerCase();
                 movie.style.display = title.includes(searchQuery) ? "block" : "none";
             });
-        });
-
-        // Carousel Functionality
-        const carousel = document.getElementById("carousel");
-        const prevButton = document.getElementById("prev");
-        const nextButton = document.getElementById("next");
-
-        let currentIndex = 0;
-        const totalSlides = document.querySelectorAll("#carousel > div").length;
-
-        prevButton.addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-        });
-
-        nextButton.addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
         });
     </script>
 </body>
