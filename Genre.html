@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genres</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: #ffffff;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5em;
+        }
+        .genres-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .genre {
+            background: linear-gradient(135deg, #001d22,#001d22);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(255, 118, 136, 0.3);
+            width: 180px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #00bfff;
+        }
+        .genre img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .genre:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 118, 136, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Explore Your Favorite Genres</h1>
+    <div class="genres-container">
+        <div class="genre">Action
+            <img src="genre_afbeelding/action.jpg" alt="Action Genre">
+        </div>
+        <div class="genre">Adventure
+            <img src="genre_afbeelding/adventure.jpg" alt="Adventure Genre">
+        </div>
+        <div class="genre">Comedy
+            <img src="genre_afbeelding/comedy.jpeg"Comedy Genre">
+        </div>
+        <div class="genre">Drama
+            <img src="genre_afbeelding/Drama.jpg" alt="Drama Genre">
+        </div>
+        <div class="genre">Horror
+            <img src="genre_afbeelding/horror.webp" alt="Horror Genre">
+        </div>
+        <div class="genre">Sci-Fi
+            <img src="genre_afbeelding/Sci-fi.jpeg" alt="Sci-Fi Genre">
+        </div>
+        <div class="genre">Romance
+            <img src="genre_afbeelding/romance.jpeg" alt="Romance Genre">
+        </div>
+        <div class="genre">Thriller
+            <img src="genre_afbeelding/" alt="Thriller Genre">
+        </div>
+        <div class="genre">Fantasy
+            <img src="fantasy.jpg" alt="Fantasy Genre">
+        </div>
+        <div class="genre">Mystery
+            <img src="mystery.jpg" alt="Mystery Genre">
+        </div>
+        <div class="genre">Crime
+            <img src="crime.jpg" alt="Crime Genre">
+        </div>
+        <div class="genre">Animation
+            <img src="animation.jpg" alt="Animation Genre">
+        </div>
+    </div>
+</body>
+</html>
