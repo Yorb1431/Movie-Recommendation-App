@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Recommender</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-black text-white transition-colors duration-300" id="body">
-    <nav class="w-full bg-gray-900 p-4 flex justify-between items-center shadow-lg">
+    <nav class="w-full bg-gray-900 p-4 flex justify-between items-center shadow-lg fixed top-0 z-50">
         <h1 class="text-2xl font-bold text-neonBlue">Movie Recommender</h1>
-        <div class="flex items-center gap-4">
+        
+        <button id="menu-btn" class="block md:hidden text-neonBlue focus:outline-none">
+            ☰
+        </button>
+        
+        <div id="menu" class="hidden md:flex md:items-center gap-4">
             <a href="./index.html" class="text-white hover:text-neonBlue">Home</a>
             <a href="#movie-grid" class="text-white hover:text-neonBlue">Movies</a>
             <a href="./Genre.html" class="text-white hover:text-neonBlue">Genres</a>
@@ -18,76 +24,80 @@
             </button>
         </div>
     </nav>
-    <!-- Dark Mode Toggle -->
-    <div class="absolute top-4 right-4">
-        <button onclick="toggleDarkMode()" class="px-4 py-2 bg-gray-900 text-neonBlue rounded-lg border border-neonBlue hover:bg-neonBlue hover:text-black transition">
-            Toggle Dark Mode
-        </button>
-    </div>
 
-    <div class="min-h-screen flex flex-col items-center justify-center">
-        <h1 class="text-3xl font-bold text-neonBlue mb-6">Movie Recommender</h1>
-
+    <section class="min-h-screen flex flex-col items-center justify-center bg-gray-800 bg-opacity-50">
+        <h1 class="text-5xl font-bold text-neonBlue mb-6 text-center">Discover Your Next Favorite Movie</h1>
+        
         <!-- Search Bar -->
         <div class="w-full max-w-lg relative">
             <input type="text" id="search" placeholder="Search for a movie..." class="w-full p-3 rounded-lg bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-neonBlue">
+            <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
         </div>
+    </section>
 
-        <!-- Movie Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8" id="movie-grid">
-            <div class="book-container" data-title="A Perfect World">
-                <div class="book">
-                    <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
-                        <img src="./movie fotos/Perfect world.jpg" alt="A Perfect World" class="rounded-lg">
-                        <h2 class="mt-3 text-lg font-semibold text-neonBlue">A Perfect World</h2>
+    <section class="py-12 bg-gray-900">
+        <h2 class="text-3xl font-bold text-neonBlue text-center mb-8">Featured Movies</h2>
+        <div class="overflow-hidden relative w-full">
+            <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
+                <div class="min-w-full flex justify-center">
+                    <div class="book-container" data-title="A Perfect World">
+                        <div class="book">
+                            <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
+                                <img src="./movie fotos/Perfect world.jpg" alt="A Perfect World" class="rounded-lg w-full h-64 object-cover">
+                                <h2 class="mt-3 text-lg font-semibold text-neonBlue">A Perfect World</h2>
+                            </div>
+                            <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
+                                <p class="text-sm text-gray-400">1993 thriller crime drama directed by Clint Eastwood, starring Kevin Costner.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
-                        <p class="text-sm text-gray-400">1993 thriller crime drama directed by Clint Eastwood, starring Kevin Costner.</p>
+                </div>
+                <div class="min-w-full flex justify-center">
+                    <div class="book-container" data-title="The Green Mile">
+                        <div class="book">
+                            <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
+                                <img src="./movie fotos/Green mile.jpg" alt="The Green Mile" class="rounded-lg w-full h-64 object-cover">
+                                <h2 class="mt-3 text-lg font-semibold text-neonBlue">The Green Mile</h2>
+                            </div>
+                            <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
+                                <p class="text-sm text-gray-400">The tragic story of John Coffey, a giant inmate condemned to death.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="min-w-full flex justify-center">
+                    <div class="book-container" data-title="Escape Alcatraz">
+                        <div class="book">
+                            <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
+                                <img src="./movie fotos/Alcatraz 1.jpg" alt="Escape Alcatraz" class="rounded-lg w-full h-64 object-cover">
+                                <h2 class="mt-3 text-lg font-semibold text-neonBlue">Escape Alcatraz</h2>
+                            </div>
+                            <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
+                                <p class="text-sm text-gray-400">The daring escape attempt from one of the most infamous prisons.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <button id="prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-neonBlue p-2 rounded-full hover:bg-neonBlue hover:text-black transition"><i class="fas fa-chevron-left"></i></button>
+            <button id="next" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-neonBlue p-2 rounded-full hover:bg-neonBlue hover:text-black transition"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
 
-            <div class="book-container" data-title="The Green Mile">
-                <div class="book">
-                    <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
-                        <img src="./movie fotos/Green mile.jpg" alt="The Green Mile" class="rounded-lg">
-                        <h2 class="mt-3 text-lg font-semibold text-neonBlue">The Green Mile</h2>
-                    </div>
-                    <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
-                        <p class="text-sm text-gray-400">The tragic story of John Coffey, a giant inmate condemned to death.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="book-container" data-title="Escape Alcatraz">
-                <div class="book">
-                    <div class="front bg-gray-900 p-4 rounded-lg shadow-lg text-center">
-                        <img src="./movie fotos/Alcatraz 1.jpg" alt="Escape Alcatraz" class="rounded-lg w-full h-auto">
-                        <h2 class="mt-3 text-lg font-semibold text-neonBlue">Escape Alcatraz</h2>
-                    </div>
-                    <div class="back bg-gray-800 p-4 rounded-lg shadow-lg">
-                        <p class="text-sm text-gray-400">The daring escape attempt from one of the most infamous prisons.</p>
-                    </div>
-                </div>
+    <section class="py-12 bg-gray-800">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold text-neonBlue mb-8">Explore Genres</h2>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button class="genre-btn">Action</button>
+                <button class="genre-btn">Drama</button>
+                <button class="genre-btn">Comedy</button>
+                <button class="genre-btn">Horror</button>
+                <a href="./Genre.html"><button class="genre-btn">More...</button></a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Genres Section -->
-    <div class="text-center mt-8">
-        <h2 class="text-2xl font-semibold text-neonBlue mb-5">Genres</h2>
-        <div class="flex flex-wrap gap-4 justify-center">
-            <button class="genre-btn">Action</button>
-            <button class="genre-btn">Drama</button>
-            <button class="genre-btn">Comedy</button>
-            <button class="genre-btn">Horror</button>
-            <a href="./Genre.html"><button class="genre-btn">More...</button></a>
-        </div>
-    </div>
-
-    <button onclick="scrollToTop()" id="backToTop" class="hidden fixed bottom-6 right-6 px-4 py-2 bg-neonBlue text-black rounded-lg shadow-lg hover:bg-blue-400 transition">↑ Top</button>
-
-    <footer class="w-full py-6 bg-gray-800 mt-8 text-center text-gray-400 text-sm">
+    <footer class="w-full py-6 bg-gray-900 text-center text-gray-400 text-sm">
         <p>© 2025 Movie Recommender. All rights reserved.</p>
         <p class="mt-1">Page Created by Angelo, Simon, and Yorbe</p>
     </footer>
@@ -143,13 +153,11 @@
     </style>
 
     <script>
-        // Dark Mode Toggle
         function toggleDarkMode() {
             document.body.classList.toggle("bg-white");
             document.body.classList.toggle("text-black");
         }
 
-        // Live Search Filter
         document.getElementById("search").addEventListener("input", function () {
             let searchQuery = this.value.toLowerCase();
             let movies = document.querySelectorAll(".book-container");
@@ -159,13 +167,29 @@
             });
         });
 
-        // Back to Top Button
         window.addEventListener("scroll", function () {
             document.getElementById("backToTop").classList.toggle("hidden", window.scrollY < 300);
         });
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
+
+        const carousel = document.getElementById("carousel");
+        const prevButton = document.getElementById("prev");
+        const nextButton = document.getElementById("next");
+
+        let currentIndex = 0;
+        const totalSlides = document.querySelectorAll("#carousel > div").length;
+
+        prevButton.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
     </script>
 </body>
 </html>
