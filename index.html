@@ -6,41 +6,53 @@
     <title>Movie Recommender</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-black text-white transition-colors duration-300" id="body">
+<body class="bg-black text-white font-poppins transition-colors duration-300" id="body">
+    <!-- Navigation Bar -->
     <nav class="w-full bg-gray-900 p-4 flex justify-between items-center shadow-lg fixed top-0 z-50">
-        <h1 class="text-2xl font-bold text-neonBlue">Movie Recommender</h1>
+        <!-- Logo with Book Emoji -->
+        <div class="flex items-center space-x-2">
+            <span class="text-3xl">📚</span>
+            <h1 class="text-2xl font-bold text-neonBlue">Movie Recommender</h1>
+        </div>
         
+        <!-- Mobile Menu Button -->
         <button id="menu-btn" class="block md:hidden text-neonBlue focus:outline-none">
             ☰
         </button>
         
+        <!-- Navigation Links -->
         <div id="menu" class="hidden md:flex md:items-center gap-4">
-            <a href="./index.html" class="text-white hover:text-neonBlue">Home</a>
-            <a href="#movie-grid" class="text-white hover:text-neonBlue">Movies</a>
-            <a href="./Genre.html" class="text-white hover:text-neonBlue">Genres</a>
-            <button onclick="toggleDarkMode()" class="px-4 py-2 bg-gray-800 text-neonBlue rounded-lg border border-neonBlue hover:bg-neonBlue hover:text-black transition">
+            <a href="./index.html" class="text-white hover:text-neonBlue transition duration-300">Home</a>
+            <a href="#movie-grid" class="text-white hover:text-neonBlue transition duration-300">Movies</a>
+            <a href="./Genre.html" class="text-white hover:text-neonBlue transition duration-300">Genres</a>
+            <button onclick="toggleDarkMode()" class="px-4 py-2 bg-gray-800 text-neonBlue rounded-lg border border-neonBlue hover:bg-neonBlue hover:text-black transition duration-300">
                 Toggle Dark Mode
             </button>
         </div>
     </nav>
 
+    <!-- Hero Section with Animation -->
     <section class="min-h-screen flex flex-col items-center justify-center bg-gray-800 bg-opacity-50">
-        <h1 class="text-5xl font-bold text-neonBlue mb-6 text-center">Discover Your Next Favorite Movie</h1>
-        
-        <!-- Search Bar -->
-        <div class="w-full max-w-lg relative">
-            <input type="text" id="search" placeholder="Search for a movie..." class="w-full p-3 rounded-lg bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-neonBlue">
-            <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+        <div class="animate-fade-in">
+            <h1 class="text-5xl font-bold text-neonBlue mb-6 text-center">Discover Your Next Favorite Movie</h1>
+            
+            <!-- Search Bar -->
+            <div class="w-full max-w-lg relative">
+                <input type="text" id="search" placeholder="Search for a movie..." class="w-full p-3 rounded-lg bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-neonBlue">
+                <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+            </div>
         </div>
     </section>
 
+    <!-- Movie Carousel with Animation -->
     <section class="py-12 bg-gray-900">
-        <h2 class="text-3xl font-bold text-neonBlue text-center mb-8">Featured Movies</h2>
+        <h2 class="text-3xl font-bold text-neonBlue text-center mb-8 animate-slide-in">Featured Movies</h2>
         <div class="overflow-hidden relative w-full">
             <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
                 <div class="min-w-full flex justify-center">
-                    <div class="book-container" data-title="A Perfect World">
+                    <div class="book-container animate-pop-in" data-title="A Perfect World">
                         <div class="book">
                             <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
                                 <img src="./movie fotos/Perfect world.jpg" alt="A Perfect World" class="rounded-lg w-full h-64 object-cover">
@@ -53,7 +65,7 @@
                     </div>
                 </div>
                 <div class="min-w-full flex justify-center">
-                    <div class="book-container" data-title="The Green Mile">
+                    <div class="book-container animate-pop-in" data-title="The Green Mile">
                         <div class="book">
                             <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
                                 <img src="./movie fotos/Green mile.jpg" alt="The Green Mile" class="rounded-lg w-full h-64 object-cover">
@@ -66,7 +78,7 @@
                     </div>
                 </div>
                 <div class="min-w-full flex justify-center">
-                    <div class="book-container" data-title="Escape Alcatraz">
+                    <div class="book-container animate-pop-in" data-title="Escape Alcatraz">
                         <div class="book">
                             <div class="front bg-gray-900 p-4 rounded-lg shadow-lg">
                                 <img src="./movie fotos/Alcatraz 1.jpg" alt="Escape Alcatraz" class="rounded-lg w-full h-64 object-cover">
@@ -84,25 +96,51 @@
         </div>
     </section>
 
+    <!-- Genres Section with Animation -->
     <section class="py-12 bg-gray-800">
         <div class="text-center">
-            <h2 class="text-3xl font-bold text-neonBlue mb-8">Explore Genres</h2>
+            <h2 class="text-3xl font-bold text-neonBlue mb-8 animate-slide-in">Explore Genres</h2>
             <div class="flex flex-wrap gap-4 justify-center">
-                <button class="genre-btn">Action</button>
-                <button class="genre-btn">Drama</button>
-                <button class="genre-btn">Comedy</button>
-                <button class="genre-btn">Horror</button>
-                <a href="./Genre.html"><button class="genre-btn">More...</button></a>
+                <button class="genre-btn animate-pop-in">Action</button>
+                <button class="genre-btn animate-pop-in">Drama</button>
+                <button class="genre-btn animate-pop-in">Comedy</button>
+                <button class="genre-btn animate-pop-in">Horror</button>
+                <a href="./Genre.html"><button class="genre-btn animate-pop-in">More...</button></a>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="w-full py-6 bg-gray-900 text-center text-gray-400 text-sm">
         <p>© 2025 Movie Recommender. All rights reserved.</p>
         <p class="mt-1">Page Created by Angelo, Simon, and Yorbe</p>
     </footer>
 
     <style>
+        /* Custom Animations */
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slide-in {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes pop-in {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-out;
+        }
+        .animate-slide-in {
+            animation: slide-in 1s ease-out;
+        }
+        .animate-pop-in {
+            animation: pop-in 0.5s ease-out;
+        }
+
         .text-neonBlue {
             color: #00bfff;
         }
@@ -153,11 +191,13 @@
     </style>
 
     <script>
+        // Dark Mode Toggle
         function toggleDarkMode() {
             document.body.classList.toggle("bg-white");
             document.body.classList.toggle("text-black");
         }
 
+        // Live Search Filter
         document.getElementById("search").addEventListener("input", function () {
             let searchQuery = this.value.toLowerCase();
             let movies = document.querySelectorAll(".book-container");
@@ -167,13 +207,7 @@
             });
         });
 
-        window.addEventListener("scroll", function () {
-            document.getElementById("backToTop").classList.toggle("hidden", window.scrollY < 300);
-        });
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-
+        // Carousel Functionality
         const carousel = document.getElementById("carousel");
         const prevButton = document.getElementById("prev");
         const nextButton = document.getElementById("next");
